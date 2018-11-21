@@ -1,7 +1,5 @@
 version: '2'
 services:
-  redis-master:
-    image: rancher/external-service
   redis-sentinel:
     image: ahfeel/rancher-redis-cluster-sentinel
     environment:
@@ -17,7 +15,7 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
     sysctls:
-      net.core.somaxconn: '511'
+      net.core.somaxconn: "511"
   redis-server:
     image: ahfeel/rancher-redis-cluster-node
     stdin_open: true
@@ -25,10 +23,10 @@ services:
     - /mnt/redis:/data
     tty: true
     labels:
+      io.rancher.scheduler.affinity:container_label_ne: redis-server=1
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
-      io.rancher.scheduler.affinity:container_label_ne: redis-server=1
-      io.rancher.container.pull_image: always
       redis-server: '1'
+      io.rancher.container.pull_image: always
     sysctls:
-      net.core.somaxconn: '511'
+      net.core.somaxconn: "511"
