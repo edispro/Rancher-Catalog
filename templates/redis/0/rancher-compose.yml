@@ -21,7 +21,12 @@
       type: int
       default: 3
       required: true
-
+    - variable: REDIS_VOLUME_PATH
+      label: Volume Name of server nodes
+      description: To store the redis data.
+      type: string
+       default: "/mnt/redis"
+      required: true
 
 version: '2'
 services:
