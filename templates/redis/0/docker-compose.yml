@@ -24,7 +24,7 @@ services:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
     stdin_open: true
     volumes:
-      - {{.Values.SENTINEL_VOLUME_PATH}}:/data
+    - /mnt/redis:/data
     tty: true
     labels:
       io.rancher.scheduler.affinity:container_label_ne: redis-server=1
