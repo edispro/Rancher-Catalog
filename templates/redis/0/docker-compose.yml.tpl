@@ -19,7 +19,7 @@ services:
   redis-server:
     image: edispro/rancher-redis-cluster-node
      environment:
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_PASSWORD: '${REDIS_PASSWORD}'
     stdin_open: true
     volumes:
     - /mnt/redis:/data
