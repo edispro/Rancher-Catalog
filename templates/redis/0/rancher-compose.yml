@@ -1,17 +1,21 @@
 version: '2'
 catalog:
-  name: "Redis"
-  version: "4.0.0"
-  description: "A cluster of Redis instances for High Availability on Rancher"
-  minimum_rancher_version: v1.6.0
-  questions:
-      - variable: "REDIS_PASSWORD"
-      description: "Redis password"
-      label: "Redis password"
-      required: true
-      default: "password"
-      type: "string"
+    name: "Redis"
+    version: 4.0.0
+    description: A cluster of Redis instances for High Availability on Rancher
+    minimum_rancher_version: v1.6.0
+    
+    questions:
+        - variable: "REDIS_PASSWORD"
+          type: "string"
+          required: true
+          label: Redis Password
+          description: "Redis Password"
+          default: ""
+
+ 
 services:
+
   redis-sentinel:
     retain_ip: true
     scale: 3
@@ -29,3 +33,6 @@ services:
       interval: 2000
       strategy: none
       reinitializing_timeout: 60000
+  redis-commander:
+    scale: 1
+    start_on_create: true
