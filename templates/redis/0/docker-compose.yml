@@ -18,7 +18,7 @@ services:
       net.core.somaxconn: "511"
   redis-server:
     image: edispro/rancher-redis-cluster-node
-     environment:
+    environment:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
     stdin_open: true
     volumes:
