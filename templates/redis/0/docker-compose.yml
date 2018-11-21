@@ -1,7 +1,7 @@
 version: '2'
 services:
   redis-sentinel:
-    image: edispro/rancher-redis-cluster-sentinel
+    image: edispro/rancher-redis-cluster-sentinel:latest
     environment:
       SENTINEL_DOWN_AFTER_MILLISECONDS: '5000'
     stdin_open: true
@@ -17,7 +17,7 @@ services:
     sysctls:
       net.core.somaxconn: "511"
   redis-server:
-    image: edispro/rancher-redis-cluster-node
+    image: edispro/rancher-redis-cluster-node:latest
      environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     stdin_open: true
