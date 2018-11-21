@@ -1,5 +1,7 @@
 version: '2'
 services:
+  redis-master:
+    image: rancher/external-service
   redis-sentinel:
     image: edispro/rancher-redis-cluster-sentinel
     environment:
