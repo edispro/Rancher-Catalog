@@ -7,11 +7,11 @@ version: '2'
 services:
   redis-sentinel:
     retain_ip: true
-    scale: 3
+    scale: 4
     start_on_create: true
   redis-server:
     retain_ip: true
-    scale: 3
+    scale: 4
     start_on_create: true
     health_check:
       healthy_threshold: 2
@@ -22,6 +22,3 @@ services:
       interval: 2000
       strategy: none
       reinitializing_timeout: 60000
-  redis-commander:
-    scale: 1
-    start_on_create: true
