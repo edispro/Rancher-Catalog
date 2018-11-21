@@ -3,6 +3,13 @@
   version: "4.0.0"
   description: "A cluster of Redis instances for High Availability on Rancher"
   minimum_rancher_version: v1.6.0
+  questions:
+      - variable: "REDIS_PASSWORD"
+      description: "Redis password"
+      label: "Redis password"
+      required: true
+      default: "password"
+      type: "string"
 version: '2'
 services:
   redis-sentinel:

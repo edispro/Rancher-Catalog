@@ -18,6 +18,8 @@ services:
       net.core.somaxconn: "511"
   redis-server:
     image: ahfeel/rancher-redis-cluster-node
+     environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
     stdin_open: true
     volumes:
     - /mnt/redis:/data
