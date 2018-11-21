@@ -1,27 +1,37 @@
-
+---
 .catalog:
-    name: "Redis"
-    version: 4.0.0
-    description: A cluster of Redis instances for High Availability on Rancher
-    minimum_rancher_version: v1.6.0
+  name: "Redis Cluster"
+  version: "v4.0.0"
+  description: |
+    Redis Sentinel Cluster
+  questions:
+    - variable: REDIS_PASSWORD
+      label: "Redis auth password"
+      type: password
+      required: true
+    - variable: REDIS_NODES
+      label: Number of redis nodes
+      description: Number of Redis server nodes to launch.
+      type: int
+      default: 1
+      required: true
+    - variable: SENTINEL_NODES
+      label: Number of sentinel nodes
+      description: Number of Sentinel nodes to launch.
+      type: int
+      default: 1
+      required: true
 
-    questions:
-        - variable: "REDIS_PASSWORD"
-          type: "string"
-          required: true
-          label: Redis Password
-          description: "Redis Password"
-          default: ""
 
-version: '2' 
+version: '2'
 services:
   redis-sentinel:
     retain_ip: true
-    scale: 3
+    scale: ${SENTINEL_NODES}
     start_on_create: true
   redis-server:
     retain_ip: true
-    scale: 3
+    scale: ${REDIS_NODES}
     start_on_create: true
     health_check:
       healthy_threshold: 2
@@ -32,6 +42,3 @@ services:
       interval: 2000
       strategy: none
       reinitializing_timeout: 60000
-  redis-commander:
-    scale: 1
-    start_on_create: true
