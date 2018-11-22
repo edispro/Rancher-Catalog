@@ -3,7 +3,7 @@ services:
   redis-master:
     image: rancher/external-service
   redis-sentinel:
-    image: ahfeel/rancher-redis-cluster-sentinel
+    image: edispro/rancher-redis-cluster-sentinel
     environment:
       SENTINEL_DOWN_AFTER_MILLISECONDS: '5000'
     stdin_open: true
@@ -19,7 +19,7 @@ services:
     sysctls:
       net.core.somaxconn: "511"
   redis-server:
-    image: ahfeel/rancher-redis-cluster-node
+    image: edispro/rancher-redis-cluster-node
     environment:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
     stdin_open: true
