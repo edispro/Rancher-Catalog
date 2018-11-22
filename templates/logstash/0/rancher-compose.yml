@@ -44,7 +44,7 @@
         stack/service link or external service link to elasticsearch
         cluster.
       label: "Elasticsearch stack/service"
-      default: "es-cluster/es-client"
+      default: "es-cluster/es-master"
       required: true
       type: "service"
     - variable: "file_path"
