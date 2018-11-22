@@ -38,6 +38,11 @@
         stdout {
           codec => rubydebug
         }
+    - variable: "file_path"
+      label: "Add Volume to /mnt/logstash"
+      default: "/mnt/logstash"
+      type: "string"
+      required: true
     - variable: "elasticsearch_link"
       description: |
         stack/service link or external service link to elasticsearch
