@@ -28,6 +28,8 @@ services:
   redis-master:
     retain_ip: true
     start_on_create: true
+    external_ips:
+    - 10.42.32.1
   redis-sentinel:
     retain_ip: true
     scale: ${SENTINEL_NODES}
