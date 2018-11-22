@@ -8,7 +8,6 @@
         Logstash collection tier inputs. These will be added
         directly to input { } section of logstash.conf
         jdbc_driver_library path /usr/share/logstash/lib/mysql-connector-java.jar
-        mysql host  mysql.rancher.internal
       label: "Logstash inputs"
       type: "multiline"
       required: true
@@ -44,14 +43,16 @@
         stack/service link or external service link to elasticsearch
         cluster.
       label: "Elasticsearch stack/service"
-      default: "es-cluster/es-master"
+      default: ""
       required: true
       type: "service"
-    - variable: "file_path"
-      label: "Add Volume to /mnt/logstash"
-      default: "/mnt/logstash"
-      type: "string"
+    - variable: "mysql_link"
+      description: |
+        mysql host  mysql.rancher.internal
+      label: "mysql stack/service"
+      default: ""
       required: true
+      type: "service"
 logstash-indexer:
   metadata:
     logstash:
