@@ -45,6 +45,7 @@ logstash-collector:
   - "6000/tcp"
   volumes_from:
   - logstash-collector-config
+  volumes:
   - ${file_path}:/mnt/logstash
   command:
   - logstash
