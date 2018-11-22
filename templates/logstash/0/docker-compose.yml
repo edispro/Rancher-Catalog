@@ -24,7 +24,7 @@ logstash-indexer:
   - redis:redis
   external_links:
   - ${elasticsearch_link}:elasticsearch
-    - ${mysql_link}:mysql
+  - ${mysql_link}:mysql
   stdin_open: true
   labels:
     io.rancher.sidekicks: logstash-indexer-config
@@ -47,7 +47,7 @@ logstash-collector:
   - "6000/tcp"
   volumes_from:
   - logstash-collector-config
-  - ${FILE_PATH}:/mnt/logstash
+  - ${file_path}:/mnt/logstash
   command:
   - logstash
   - -f

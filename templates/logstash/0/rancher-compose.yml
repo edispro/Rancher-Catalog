@@ -47,7 +47,7 @@
       default: "es-cluster/es-client"
       required: true
       type: "service"
-      - variable: "mysql_link"
+    - variable: "mysql_link"
       description: |
         stack/service link or external service link to mysql
         cluster.
@@ -55,9 +55,9 @@
       default: "pxc/pxc"
       required: true
       type: "service"
-    - variable: FILE_PATH
+    - variable: "file_path"
       label: "Add Volume to /mnt/logstash"
-      type: text
+      type: "string"
       required: false
 logstash-indexer:
   metadata:
