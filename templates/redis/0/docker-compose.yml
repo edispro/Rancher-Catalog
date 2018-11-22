@@ -3,7 +3,7 @@ services:
   redis-master:
     image: rancher/external-service
   redis-sentinel:
-    image: edispro/rancher-redis-cluster-sentinel
+    image: ahfeel/rancher-redis-cluster-sentinel
     environment:
       SENTINEL_DOWN_AFTER_MILLISECONDS: '5000'
     stdin_open: true
