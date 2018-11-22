@@ -11,10 +11,19 @@
       type: "multiline"
       required: true
       default: |
-        udp {
-          port => 5000
-          codec => "json"
-        }
+         jdbc {
+          jdbc_driver_library => "/usr/share/logstash/lib/mysql-connector-java.jar"
+        jdbc_driver_class => "com.mysql.jdbc.Driver"
+        jdbc_connection_string => "jdbc:mysql://localhost:3306/uats1_db"
+        jdbc_user => "uats1_db"
+        jdbc_password => "qTuFlJvvBm"
+        jdbc_paging_enabled =>"false"
+        clean_run =>"true"
+ 	 schedule => "* * * * *"
+        statement_filepath => "/tmp/stockbyitemsfulldetail.sql"
+        jdbc_default_timezone => "Asia/Bangkok"
+        type=>"stockbyitemsfulldetail"
+    }
     - variable: "indexer_filters"
       description: |
         Logstash indexing tier filters. These will be added
@@ -33,6 +42,9 @@
       default: |
         elasticsearch {
           hosts => ["elasticsearch.rancher.internal:9200"]
+          index => "club21_%{type}"
+          document_type => "%{type}"
+          document_id => "%{id}"
         }
         stdout {
           codec => rubydebug
