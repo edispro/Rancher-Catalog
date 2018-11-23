@@ -36,9 +36,11 @@ services:
     health_check:
       healthy_threshold: 2
       response_timeout: 2000
+      recreate_on_quorum_strategy_config:
+        quorum: 2
       port: 6379
       unhealthy_threshold: 3
       initializing_timeout: 60000
       interval: 2000
-      strategy: none
+      strategy: recreateOnQuorum
       reinitializing_timeout: 60000
