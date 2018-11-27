@@ -58,7 +58,7 @@ galera:
       wsrep_provider_options="gcache.size = 2G"
       wsrep_sst_auth=root:${mysql_root_password}
       progress_report_time=1
-      wsrep_sst_method=mysqldump
+      wsrep_sst_method=mariabackup
 galera-lb:
   scale: 3
   start_on_create: true
@@ -67,7 +67,7 @@ galera-lb:
     - protocol: tcp
       service: galera
       source_port: ${mysql_port}
-      target_port: 3307
+      target_port: 3306
   load_balancer_config: {}
   health_check:
     port: 42

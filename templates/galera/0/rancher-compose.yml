@@ -68,7 +68,7 @@ galera-lb:
     - protocol: tcp
       service: galera
       source_port: ${mysql_port}
-      target_port: 3307
+      target_port: 3306
   load_balancer_config: {}
   health_check:
     port: 42
