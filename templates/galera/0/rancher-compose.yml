@@ -55,11 +55,11 @@ galera:
       binlog_format=ROW
       default-storage-engine=innodb
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
-      wsrep-provider-options = "gcache.size=256M;gcache.page_size=128M;debug=no" 
+      wsrep-provider-options = "gcache.size=2G;gcache.page_size=128M;debug=no" 
       wsrep_sst_auth=root:${mysql_root_password}
       wsrep-on=ON
       progress_report_time=1
-      wsrep_sst_method = rsync
+      wsrep_sst_method = xtrabackup-v2
 galera-lb:
   scale: 3
   start_on_create: true
