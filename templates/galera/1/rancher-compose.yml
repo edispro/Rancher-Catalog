@@ -1,8 +1,8 @@
 .catalog:
   name: "Galera DB"
-  version: 10.2.19
+  version: 10.3.11
   description: |
-    Galera Cluster based on MariaDB 10.2.19
+    Galera Cluster based on MariaDB 10.3.11
   questions:
     - variable: "mysql_root_password"
       type: string
