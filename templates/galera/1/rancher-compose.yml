@@ -55,7 +55,7 @@ galera:
       binlog_format=ROW
       default-storage-engine=innodb
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
-      wsrep_provider_options="gcache.size = 2G"
+      wsrep-provider-options = "gcache.size=512M;gcache.page_size=128M;debug=no" 
       wsrep_sst_auth=root:${mysql_root_password}
       progress_report_time=1
       wsrep-on=ON
