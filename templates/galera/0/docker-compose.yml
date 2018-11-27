@@ -1,6 +1,8 @@
 mariadb-galera-server:
   image: rancher/galera:10.0.22-rancher2
   net: "container:galera"
+  stdin_open: true
+  tty: true
   environment:
     TERM: "xterm"
     MYSQL_ROOT_PASSWORD: "${mysql_root_password}"
