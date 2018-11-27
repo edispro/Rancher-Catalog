@@ -64,8 +64,8 @@ galera-lb:
   start_on_create: true
   load_balancer_config: {}
   health_check:
-    port: 3306
-    interval: 2000
+    port: 4567
+    interval: 60000
     unhealthy_threshold: 3
     healthy_threshold: 2
     response_timeout: 2000
