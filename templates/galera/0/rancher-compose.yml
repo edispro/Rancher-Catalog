@@ -57,9 +57,8 @@ galera:
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
       wsrep-provider-options = "gcache.size=2G;gcache.page_size=128M;debug=no" 
       wsrep_sst_auth=root:${mysql_root_password}
-      wsrep-on=ON
       progress_report_time=1
-      wsrep_sst_method = mariabackup
+      wsrep-on=ON
 galera-lb:
   scale: 3
   start_on_create: true

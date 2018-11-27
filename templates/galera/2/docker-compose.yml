@@ -45,7 +45,7 @@ galera:
   command: /bin/bash
 
 galera-lb:
-  ports:
+  expose:
   - ${mysql_port}:3306/tcp
   labels:
     io.rancher.container.agent.role: environmentAdmin,agent
