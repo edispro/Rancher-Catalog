@@ -62,12 +62,6 @@ galera:
 galera-lb:
   scale: 3
   start_on_create: true
-  lb_config:
-    port_rules:
-    - protocol: tcp
-      service: galera
-      source_port: ${mysql_port}
-      target_port: 3306
   load_balancer_config: {}
   health_check:
     port: 3306
