@@ -60,7 +60,7 @@ galera:
       wsrep_sst_auth=root:${mysql_root_password}
       progress=1
 galera-lb:
- scale: 3
+  scale: 3
   start_on_create: true
   lb_config:
     certs: []
