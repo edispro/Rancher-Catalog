@@ -61,7 +61,6 @@ galera:
       progress=1
       innodb_large_prefix=on
       innodb_file_format = Barracuda
-      innodb_default_row_format = dynamic
 galera-lb:
   scale: 3
   start_on_create: true
