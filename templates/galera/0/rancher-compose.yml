@@ -57,7 +57,7 @@ galera:
       wsrep_provider_options="gcache.size = 2G"
       wsrep_sst_method=mysqldump
       wsrep_sst_auth=root:${mysql_root_password}
-      progress=1
+      progress_report_time=1
       wsrep_sst_method=rsync
 galera-lb:
   scale: 3
