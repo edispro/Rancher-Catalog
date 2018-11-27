@@ -44,6 +44,7 @@
       required: true
 galera:
   scale: 3
+  retain_ip: true
   metadata:
     mysqld: |
       innodb_file_per_table = 1
@@ -55,7 +56,6 @@ galera:
       default-storage-engine=innodb
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
       wsrep_provider_options="gcache.size = 2G"
-      wsrep_sst_method=mysqldump
       wsrep_sst_auth=root:${mysql_root_password}
       progress_report_time=1
       wsrep_sst_method=rsync
