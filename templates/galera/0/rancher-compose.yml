@@ -35,13 +35,13 @@
       description: "Volume to save mysql data (must end with a colon ':' if specified)."
       default: ""
       type: "string"
-      required: true
+      required: false
     - variable: "mysql_conf"
       label: "Config volume:"
       description: "Volume to save mysql conf (must end with a colon ':' if specified)."
       default: ""
       type: "string"
-      required: true
+      required: false
 galera:
   scale: 3
   retain_ip: true
