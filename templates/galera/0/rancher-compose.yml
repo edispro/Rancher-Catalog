@@ -59,7 +59,7 @@ galera:
       wsrep_sst_auth=root:${mysql_root_password}
       wsrep-on=ON
       progress_report_time=1
-      wsrep_sst_method = xtrabackup-v2
+      wsrep_sst_method = mariabackup
 galera-lb:
   scale: 3
   start_on_create: true
