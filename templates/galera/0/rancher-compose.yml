@@ -60,7 +60,15 @@ galera:
       wsrep_sst_auth=root:${mysql_root_password}
       progress=1
 galera-lb:
-  scale: 1
+ scale: 3
+  start_on_create: true
+  lb_config:
+    certs: []
+    port_rules:
+    - protocol: tcp
+      service: galera
+      source_port: ${mysql_port}
+      target_port: 3307
   load_balancer_config: {}
   health_check:
     port: 42
