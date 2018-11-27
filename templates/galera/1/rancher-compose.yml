@@ -70,7 +70,7 @@ galera-lb:
       target_port: 3306
   load_balancer_config: {}
   health_check:
-    port: 42
+    port: 3306
     interval: 2000
     unhealthy_threshold: 3
     healthy_threshold: 2
