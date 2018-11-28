@@ -33,7 +33,7 @@ galera-leader-forwarder:
   volumes_from:
    - 'mariadb-galera-data'
 galera:
-  image: edispro/galera-conf:latest
+  image: edispro/galera-conf:v0.3.0
   labels:
     io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
     io.rancher.container.hostname_override: container_name
