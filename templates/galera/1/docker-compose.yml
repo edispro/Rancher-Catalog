@@ -1,5 +1,5 @@
 mariadb-galera-server:
-  image: mariadb:10.3.11
+  image: mariadb:10.3.11-bionic
   net: "container:galera"
   stdin_open: true
   tty: true
@@ -15,7 +15,7 @@ mariadb-galera-server:
     io.rancher.container.hostname_override: container_name
   entrypoint: bash -x /opt/rancher/start_galera
 mariadb-galera-data:
-  image: mariadb:10.3.11
+  image: mariadb:10.3.11-bionic
   net: none
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -24,7 +24,6 @@ mariadb-galera-data:
     - ${mysql_conf}/etc/mysql/conf.d
     - /docker-entrypoint-initdb.d
     - /opt/rancher
-    - /etc/timezone:/etc/timezone:ro
     - /etc/localtime:/etc/localtime:ro
   command: /bin/true
   labels:
