@@ -24,8 +24,8 @@ mariadb-galera-data:
     - ${mysql_conf}/etc/mysql/conf.d
     - /docker-entrypoint-initdb.d
     - /opt/rancher
-    - "/etc/timezone:/etc/timezone:ro"
-    - "/etc/localtime:/etc/localtime:ro"
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
   command: /bin/true
   labels:
     io.rancher.container.start_once: true
