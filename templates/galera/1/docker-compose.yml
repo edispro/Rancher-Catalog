@@ -19,6 +19,10 @@ mariadb-galera-data:
   net: none
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    MYSQL_ROOT_PASSWORD: "${mysql_root_password}"
+    MYSQL_DATABASE: "${mysql_database}"
+    MYSQL_USER: "${mysql_user}"
+    MYSQL_PASSWORD: "${mysql_password}"
   volumes:
     - ${mysql_data}/var/lib/mysql
     - ${mysql_conf}/etc/mysql/conf.d

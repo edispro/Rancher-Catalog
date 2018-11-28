@@ -57,7 +57,6 @@ galera:
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
       wsrep-provider-options = "gcache.size=2G;gcache.page_size=128M;debug=no" 
       wsrep_sst_auth=root:${mysql_root_password}
-      progress_report_time=1
       wsrep-on=ON
 galera-lb:
   scale: 3
