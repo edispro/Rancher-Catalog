@@ -18,10 +18,7 @@ mariadb-galera-data:
   image: mariadb:10.3.11
   net: none
   environment:
-    MYSQL_ROOT_PASSWORD: "${mysql_root_password}"
-    MYSQL_DATABASE: "${mysql_database}"
-    MYSQL_USER: "${mysql_user}"
-    MYSQL_PASSWORD: "${mysql_password}"
+    MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
   volumes:
     - ${mysql_data}/var/lib/mysql
     - ${mysql_conf}/etc/mysql/conf.d
@@ -30,7 +27,6 @@ mariadb-galera-data:
   command: /bin/true
   labels:
     io.rancher.container.start_once: true
-  entrypoint: docker-entrypoint.sh
 galera-leader-forwarder:
   image: rancher/galera-leader-proxy:v0.1.0
   net: "container:galera"
