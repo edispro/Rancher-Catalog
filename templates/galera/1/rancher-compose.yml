@@ -53,9 +53,11 @@ galera:
       query_cache_type=0
       innodb_flush_log_at_trx_commit=0
       binlog_format=ROW
+      binlog_row_image=MINIMAL
+      log_slave_updates=1
       default-storage-engine=innodb
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
-      wsrep-provider-options = "gcache.size=1G" 
+      wsrep-provider-options = "gcache.size=1G;pc.weight=1;pc.ignore_quorum=true" 
       wsrep_sst_auth=root:${mysql_root_password}
       wsrep_log_conflicts=0
       wsrep_debug=0
