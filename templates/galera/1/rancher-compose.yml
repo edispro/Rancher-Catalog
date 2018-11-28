@@ -76,7 +76,6 @@ galera:
       sort_buffer_size = 1M
       read_buffer_size = 1M
       read_rnd_buffer_size = 4M
-      default-time-zone= "+07:00"
 galera-lb:
   scale: 3
   start_on_create: true
