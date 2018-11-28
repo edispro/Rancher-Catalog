@@ -1,5 +1,5 @@
 mariadb-galera-server:
-  image: mariadb:10.4.0
+  image: mariadb:10.3.11-bionic
   net: "container:galera"
   stdin_open: true
   tty: true
@@ -15,7 +15,7 @@ mariadb-galera-server:
     io.rancher.container.hostname_override: container_name
   entrypoint: bash -x /opt/rancher/start_galera
 mariadb-galera-data:
-  image: mariadb:10.4.0
+  image: mariadb:10.3.11-bionic
   net: none
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -24,6 +24,7 @@ mariadb-galera-data:
     - ${mysql_conf}/etc/mysql/conf.d
     - /docker-entrypoint-initdb.d
     - /opt/rancher
+    - /etc/localtime:/etc/localtime:ro
   command: /bin/true
   labels:
     io.rancher.container.start_once: true
@@ -33,11 +34,12 @@ galera-leader-forwarder:
   volumes_from:
    - 'mariadb-galera-data'
 galera:
-  image: rancher/galera-conf:v0.2.0
+  image: edispro/galera-conf:latest
   labels:
     io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.pull_image: always
   volumes_from:
     - 'mariadb-galera-data'
   stdin_open: true

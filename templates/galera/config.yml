@@ -1,4 +1,4 @@
 name: MariaDB Galera Cluster
 description: |
-    (Experimental) Synchronous multi-master cluster for MariaDB
+    Synchronous multi-master cluster for MariaDB
 category: Databases
