@@ -67,7 +67,7 @@ galera:
       wsrep_max_ws_size=1073741824
       wsrep_drupal_282555_workaround=0
       wsrep_causal_reads=0
-      wsrep_sst_method=rsync
+      wsrep_sst_method=xtrabackup-v2
       max_allowed_packet=256M
       collation_server=utf8_unicode_ci
       character_set_server=utf8
