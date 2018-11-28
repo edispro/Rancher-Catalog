@@ -30,7 +30,7 @@ mariadb-galera-data:
   command: /bin/true
   labels:
     io.rancher.container.start_once: true
-   entrypoint: docker-entrypoint.sh
+  entrypoint: docker-entrypoint.sh
 galera-leader-forwarder:
   image: rancher/galera-leader-proxy:v0.1.0
   net: "container:galera"
