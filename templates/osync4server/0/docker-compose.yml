@@ -1,0 +1,36 @@
+version: '2'
+services:
+  osync-main:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - /root/.ssh:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_1}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+  osync-salve-1:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - /root/.ssh:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_2}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+  osync-salve-2:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - /root/.ssh:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_3}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
