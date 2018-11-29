@@ -1,0 +1,41 @@
+---
+.catalog:
+  name: "Osync"
+  version: "1.3-beta1"
+  description: |
+    docker-osync
+  questions:
+    - variable: osync_data
+      label: "Data Volume:"
+      type: string
+      required: true
+    - variable: osync_conf_1
+      label: "Config Volume To Server 2:"
+      description: "Config For To Server 2"
+      type: string
+      default: ""
+      required: true
+    - variable: osync_conf_2
+      label: "Config Volume To Server 3:"
+      description: "Config For To Server 3"
+      type: string
+      default: ""
+      required: true
+    - variable: osync_conf_3
+      label: "Config Volume To Server 4:"
+      description: "Config For To Server 4"
+      type: string
+      default: ""
+      required: true
+
+version: '2'
+services:
+  osync-main:
+    scale: 1
+    start_on_create: true
+  osync-salve-1:
+    scale: 1
+    start_on_create: true
+  osync-salve-2:
+    scale: 1
+    start_on_create: true
