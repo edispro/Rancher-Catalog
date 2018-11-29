@@ -12,5 +12,5 @@ services:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
-      io.rancher.scheduler.affinity:host_label_ne: osync=1
+        io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
 

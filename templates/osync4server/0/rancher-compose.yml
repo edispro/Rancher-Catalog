@@ -31,11 +31,11 @@
 version: '2'
 services:
   osync-main:
-    scale: 1
+    scale: 4
     start_on_create: true
   osync-salve-1:
-    scale: 1
+    scale: 4
     start_on_create: true
   osync-salve-2:
-    scale: 1
+    scale: 4
     start_on_create: true
