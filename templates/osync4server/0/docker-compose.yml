@@ -12,7 +12,6 @@ services:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
-      io.rancher.scheduler.affinity:container_ne: container_name
       io.rancher.sidekicks: osync-salve-1,osync-salve-2
       io.rancher.scheduler.affinity:host_label_ne: osync=1
   osync-salve-1:
@@ -26,7 +25,6 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
-      io.rancher.scheduler.affinity:container_ne: container_name
       io.rancher.scheduler.affinity:host_label_ne: osync=2
   osync-salve-2:
     image: edispro/docker-osync:latest
@@ -39,5 +37,4 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
-      io.rancher.scheduler.affinity:container_ne: container_name
       io.rancher.scheduler.affinity:host_label_ne: osync=3
