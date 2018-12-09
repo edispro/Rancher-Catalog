@@ -4,6 +4,7 @@ services:
     image: edispro/docker-osync:latest
     stdin_open: true
     tty: true
+    restart: always    
     volumes:
     - /root/.ssh:/root/.ssh
     - ${osync_data}:/data
