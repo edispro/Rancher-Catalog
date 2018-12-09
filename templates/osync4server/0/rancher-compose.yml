@@ -10,24 +10,53 @@
       type: string
       required: true
     - variable: osync_conf_1
+      label: "Config Volume To Server 1:"
+      description: "Config For To Server 1"
+      type: string
+      default: ""
+      required: true
+    - variable: osync_conf_2
       label: "Config Volume To Server 2:"
       description: "Config For To Server 2"
       type: string
       default: ""
       required: true
-    - variable: osync_conf_2
+    - variable: osync_conf_3
       label: "Config Volume To Server 3:"
       description: "Config For To Server 3"
       type: string
       default: ""
       required: true
-    - variable: osync_conf_3
+    - variable: osync_conf_4
       label: "Config Volume To Server 4:"
       description: "Config For To Server 4"
       type: string
       default: ""
       required: true
-
+    - variable: osync_ssh_1
+      label: "SSH Key Volume To Server 1:"
+      description: "SSH Key For To Server 1 ex. /root/.ssh"
+      type: string
+      default: ""
+      required: true
+    - variable: osync_ssh_2
+      label: "SSH Key Volume To Server 2:"
+      description: "SSH Key For To Server 2 ex. /root/.ssh"
+      type: string
+      default: ""
+      required: true 
+    - variable: osync_ssh_3
+      label: "SSH Key Volume To Server 3:"
+      description: "SSH Key For To Server 3 ex. /root/.ssh"
+      type: string
+      default: ""
+      required: true 
+    - variable: osync_ssh_4
+      label: "SSH Key Volume To Server 4:"
+      description: "SSH Key For To Server 4 ex. /root/.ssh"
+      type: string
+      default: ""
+      required: true                         
 version: '2'
 services:
   osync-main:

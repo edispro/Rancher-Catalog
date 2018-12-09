@@ -1,11 +1,49 @@
 version: '2'
 services:
-  osync-main:
+  osync1to2:
     image: edispro/docker-osync:latest
     stdin_open: true
     tty: true
     volumes:
-    - /root/.ssh:/root/.ssh
+    - ${osync_ssh_1}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_2}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.sidekicks: osync1to3,osync1to4
+  osync1to3:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_1}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_3}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  osync1to4:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_1}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_4}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  osync2to1:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_2}:/root/.ssh
     - ${osync_data}:/data
     - ${osync_conf_1}:/etc/osync
     labels:
@@ -13,27 +51,105 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
-  osync-salve-1:
+      io.rancher.sidekicks: osync2to3,osync2to4
+  osync2to3:
     image: edispro/docker-osync:latest
     stdin_open: true
     tty: true
     volumes:
-    - /root/.ssh:/root/.ssh
-    - ${osync_data}:/data
-    - ${osync_conf_2}:/etc/osync
-    labels:
-      io.rancher.container.start_once: 'true'
-      io.rancher.container.hostname_override: container_name
-      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
-  osync-salve-2:
-    image: edispro/docker-osync:latest
-    stdin_open: true
-    tty: true
-    volumes:
-    - /root/.ssh:/root/.ssh
+    - ${osync_ssh_2}:/root/.ssh
     - ${osync_data}:/data
     - ${osync_conf_3}:/etc/osync
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
       io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  osync2to4:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_2}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_4}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}   
+  osync3to1:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_3}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_1}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.sidekicks: osync3to2,osync3to4
+  osync3to2:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_3}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_2}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  osync3to4:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_3}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_4}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name} 
+  osync4to1:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_4}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_1}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.sidekicks: osync3to2,osync3to4
+  osync4to2:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_4}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_2}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  osync4to3:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    volumes:
+    - ${osync_ssh_4}:/root/.ssh
+    - ${osync_data}:/data
+    - ${osync_conf_3}:/etc/osync
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+
