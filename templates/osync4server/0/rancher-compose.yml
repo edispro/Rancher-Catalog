@@ -1,7 +1,7 @@
 ---
 .catalog:
   name: "Osync For 4 Server"
-  version: "1.3-beta1"
+  version: "1.2"
   description: |
    Osync For 4 Server
    หลังสร้สงแล้ว ให้เข้าไปกด Upgrade แล้วเลือก Scheduling เลือก Run All  containers on a specific host แล้วเลือก server ที่ต้องการจพย้ายไป
