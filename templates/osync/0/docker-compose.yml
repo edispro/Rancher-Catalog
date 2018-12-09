@@ -8,6 +8,7 @@ services:
     - /root/.ssh:/root/.ssh
     - ${osync_data}:/data
     - ${osync_conf}:/etc/osync
+    - /etc/localtime:/etc/localtime:ro
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
