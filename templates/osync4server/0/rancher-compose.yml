@@ -62,7 +62,7 @@ services:
   osync1to2:
     scale: 1
     start_on_create: true
- osync1to3:
+  osync1to3:
     scale: 1
     start_on_create: true
   osync1to4:
@@ -71,7 +71,7 @@ services:
   osync2to1:
     scale: 1
     start_on_create: true
- osync2to3:
+  osync2to3:
     scale: 1
     start_on_create: true
   osync2to4:
@@ -80,7 +80,7 @@ services:
   osync3to1:
     scale: 1
     start_on_create: true
- osync3to2:
+  osync3to2:
     scale: 1
     start_on_create: true
   osync3to4:
@@ -89,7 +89,7 @@ services:
   osync4to1:
     scale: 1
     start_on_create: true
- osync4to2:
+  osync4to2:
     scale: 1
     start_on_create: true
   osync4to3:
