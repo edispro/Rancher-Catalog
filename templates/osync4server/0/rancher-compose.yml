@@ -57,3 +57,41 @@
       type: string
       default: ""
       required: true                         
+version: '2'
+services:
+  osync1to2:
+    scale: 1
+    start_on_create: true
+ osync1to3:
+    scale: 1
+    start_on_create: true
+  osync1to4:
+    scale: 1
+    start_on_create: true
+  osync2to1:
+    scale: 1
+    start_on_create: true
+ osync2to3:
+    scale: 1
+    start_on_create: true
+  osync2to4:
+    scale: 1
+    start_on_create: true
+  osync3to1:
+    scale: 1
+    start_on_create: true
+ osync3to2:
+    scale: 1
+    start_on_create: true
+  osync3to4:
+    scale: 1
+    start_on_create: true        
+  osync4to1:
+    scale: 1
+    start_on_create: true
+ osync4to2:
+    scale: 1
+    start_on_create: true
+  osync4to3:
+    scale: 1
+    start_on_create: true
