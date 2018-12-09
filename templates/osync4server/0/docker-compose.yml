@@ -27,6 +27,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync2to1,io.rancher.stack_service.name=$${stack_name}/osync3to1,io.rancher.stack_service.name=$${stack_name}/osync4to1
   osync1to4:
     image: edispro/docker-osync:latest
@@ -40,6 +41,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync2to1,io.rancher.stack_service.name=$${stack_name}/osync3to1,io.rancher.stack_service.name=$${stack_name}/osync4to1
   osync2to1:
     image: edispro/docker-osync:latest
@@ -68,6 +70,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync1to2,io.rancher.stack_service.name=$${stack_name}/osync3to1,io.rancher.stack_service.name=$${stack_name}/osync4to1
   osync2to4:
     image: edispro/docker-osync:latest
@@ -81,6 +84,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync1to2,io.rancher.stack_service.name=$${stack_name}/osync3to1,io.rancher.stack_service.name=$${stack_name}/osync4to1   
   osync3to1:
     image: edispro/docker-osync:latest
@@ -109,6 +113,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync1to2,io.rancher.stack_service.name=$${stack_name}/osync2to1,io.rancher.stack_service.name=$${stack_name}/osync4to1
   osync3to4:
     image: edispro/docker-osync:latest
@@ -122,6 +127,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync1to2,io.rancher.stack_service.name=$${stack_name}/osync2to1,io.rancher.stack_service.name=$${stack_name}/osync4to1
   osync4to1:
     image: edispro/docker-osync:latest
@@ -150,6 +156,7 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync1to2,io.rancher.stack_service.name=$${stack_name}/osync2to1,io.rancher.stack_service.name=$${stack_name}/osync3to1
   osync4to3:
     image: edispro/docker-osync:latest
@@ -163,5 +170,6 @@ services:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync1to4,io.rancher.stack_service.name=$${stack_name}/osync2to1,io.rancher.stack_service.name=$${stack_name}/osync3to1
 
