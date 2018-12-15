@@ -80,5 +80,6 @@ galera:
 galera-lb:
   scale: 3
   start_on_create: true
+  retain_ip: true
   load_balancer_config: {}
 

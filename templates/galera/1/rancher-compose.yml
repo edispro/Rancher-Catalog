@@ -57,12 +57,11 @@ galera:
       log_slave_updates=1
       default-storage-engine=innodb
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
-      wsrep-provider-options = "gcache.size=1G;pc.weight=1;pc.ignore_quorum=true" 
+      wsrep-provider-options = "pc.ignore_sb=TRUE;pc.ignore_quorum=true" 
       wsrep_sst_auth=root:${mysql_root_password}
       wsrep_log_conflicts=0
       wsrep_debug=0
       wsrep_convert_LOCK_to_trx=0
-      wsrep_retry_autocommit=1
       wsrep_auto_increment_control=1
       wsrep-on=ON
       wsrep_max_ws_rows=131072
@@ -81,5 +80,6 @@ galera:
 galera-lb:
   scale: 3
   start_on_create: true
+  retain_ip: true
   load_balancer_config: {}
 
