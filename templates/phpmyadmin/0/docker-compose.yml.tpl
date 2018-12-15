@@ -4,6 +4,9 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
+    labels:
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.pull_image: always    
     restart: always
     ports:
       - '${WEB_PORT}:80'
