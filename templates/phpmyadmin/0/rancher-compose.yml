@@ -45,7 +45,7 @@
         mysql host  mysql.rancher.internal
       label: "mysql stack/service"
       default: ""
-      required: true
+      required: false
       type: "service"
 version: '2'
 services:

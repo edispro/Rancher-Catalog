@@ -34,5 +34,7 @@ services:
       {{- end}}
     volumes:
       - /sessions
+     {{- if ne .Values.mysql_link ""}}
     external_links:
       - ${mysql_link}:mysql
+    {{- end}}
