@@ -4,6 +4,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
+    restart: always
     ports:
       - '${WEB_PORT}:80'
     environment:
