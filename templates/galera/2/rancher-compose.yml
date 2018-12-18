@@ -48,7 +48,8 @@ galera:
   metadata:
     mysqld: |
       innodb_file_per_table = 1
-      innodb_autoinc_lock_mode=2
+      innodb_autoinc_lock_mode=0
+      innodb_locks_unsafe_for_binlog=1
       query_cache_size=0
       query_cache_type=0
       innodb_flush_log_at_trx_commit=0
@@ -57,7 +58,7 @@ galera:
       log_slave_updates=1
       default-storage-engine=innodb
       wsrep_provider=/usr/lib/galera/libgalera_smm.so
-      wsrep-provider-options = "pc.ignore_sb=TRUE;pc.ignore_quorum=true" 
+      wsrep-provider-options = "gcache.size = 5G;pc.ignore_sb=TRUE;pc.ignore_quorum=true" 
       wsrep_sst_auth=root:${mysql_root_password}
       wsrep_log_conflicts=0
       wsrep_debug=0
