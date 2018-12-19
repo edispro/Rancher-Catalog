@@ -19,6 +19,8 @@ services:
       net.core.somaxconn: "511"
   redis-server:
     image: edispro/rancher-redis-cluster-node
+    external_links:
+    - redis-sentinel:redis-sentinel
     environment:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
       REDIS_APPENDONLY: 'yes'
