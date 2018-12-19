@@ -21,7 +21,7 @@ services:
     image: edispro/rancher-redis-cluster-node
     environment:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
-      REDIS_APPENDONLY: 'no'
+      REDIS_APPENDONLY: 'yes'
       REDIS_TIMEOUT: '1000'
     stdin_open: true
     restart: always
@@ -30,6 +30,8 @@ services:
     ports:
     - 6379:6379/tcp
     tty: true
+    links:
+    - redis-sentinel:redis-sentinel
     labels:
       io.rancher.scheduler.affinity:container_label_ne: redis-server=1
       io.rancher.container.start_once: 'true'
