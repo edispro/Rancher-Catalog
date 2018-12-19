@@ -21,7 +21,7 @@ services:
     image: edispro/rancher-redis-cluster-node
     environment:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
-      REDIS_APPENDONLY: 'yes'
+      REDIS_APPENDONLY: 'no'
       REDIS_TIMEOUT: '1000'
     stdin_open: true
     restart: always
