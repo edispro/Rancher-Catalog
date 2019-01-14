@@ -1,0 +1,38 @@
+---
+.catalog:
+  name: "Osync 2 Server"
+  version: "1.2-2host"
+  description: |
+    docker-osync
+   
+  questions:
+    - variable: osync_data
+      label: "Data Volume:"
+      type: string
+      required: true
+    - variable: osync_conf
+      label: "Config Volume:"
+      description: "Config"
+      type: string
+      default: ""
+      required: true
+    - variable: osync_user
+      label: "Username :"
+      type: string
+      default: ""
+      required: true
+    - variable: osync_password
+      label: "Password :"
+      description: "Password for root and User"
+      type: string
+      default: ""
+      required: true
+
+version: '2'
+services:
+  osync-main:
+    scale: 1
+    start_on_create: true
+  osync-slave:
+    scale: 1
+    start_on_create: true

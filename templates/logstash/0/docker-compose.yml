@@ -3,6 +3,9 @@ logstash-indexer-config:
   image: rancher/logstash-config:v0.2.0
   labels:
     io.rancher.container.hostname_override: container_name
+  external_links:
+  - ${elasticsearch_link}:elasticsearch
+  - ${mysql_link}:mysql
 redis:
   restart: always
   tty: true

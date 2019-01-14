@@ -1,0 +1,30 @@
+version: '2'
+services:
+  osync-data:
+    image: edispro/rsync-server:latest
+    stdin_open: true
+    tty: true
+    restart: always     
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    environment:
+      PASSWORD: ${osync_password}
+      USERNAME: ${osync_user}
+      VOLUME: "/webdata"
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}      
+  osync-server:
+    image: edispro/docker-osync:latest
+    stdin_open: true
+    tty: true
+    restart: always    
+    volumes:
+    - ${osync_data}:/data
+    - ${osync_conf}:/etc/osync
+    - /etc/localtime:/etc/localtime:ro
+    links:
+    - osync-data:osyncdata
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}

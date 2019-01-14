@@ -12,7 +12,6 @@ services:
     - /etc/localtime:/etc/localtime:ro
     labels:
       io.rancher.container.hostname_override: container_name
-      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync-slave
   osync-slave:
     image: edispro/docker-osync:latest
@@ -26,5 +25,4 @@ services:
     - /etc/localtime:/etc/localtime:ro
     labels:
       io.rancher.container.hostname_override: container_name
-      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/osync-main
