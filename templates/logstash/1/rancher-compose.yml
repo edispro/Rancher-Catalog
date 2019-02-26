@@ -38,7 +38,6 @@
             elasticsearch {
             index => "club21_%{type}"
             document_type => "%{type}"
-            document_id => "%{id}"
             hosts => ["elasticsearch.rancher.internal:9200"]
             }
     - variable: "file_path"
