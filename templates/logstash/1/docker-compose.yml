@@ -16,6 +16,7 @@ redis:
 logstash-indexer:
   restart: always
   tty: true
+  mem_limit: 536870912
   volumes_from:
   - logstash-indexer-config
   command:
@@ -40,6 +41,7 @@ logstash-collector-config:
 logstash-collector:
   restart: always
   tty: true
+  mem_limit: 536870912
   links:
   - redis:redis
   external_links:
