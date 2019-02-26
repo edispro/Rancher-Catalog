@@ -35,8 +35,6 @@ logstash-indexer:
 logstash-collector-config:
   restart: always
   image: rancher/logstash-config:v0.2.0
-  command:
-  - /mnt/logstash/createconfig.sh
   labels:
     io.rancher.container.hostname_override: container_name
 logstash-collector:
