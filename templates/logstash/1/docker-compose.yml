@@ -1,39 +1,3 @@
-logstash-indexer-config:
-  restart: always
-  image: rancher/logstash-config:v0.2.0
-  labels:
-    io.rancher.container.hostname_override: container_name
-  external_links:
-  - ${elasticsearch_link}:elasticsearch
-  - ${mysql_link}:mysql
-redis:
-  restart: always
-  tty: true
-  mem_limit: 4294967296
-  image: redis:3.2.6-alpine
-  stdin_open: true
-  labels:
-    io.rancher.container.hostname_override: container_name
-logstash-indexer:
-  restart: always
-  tty: true
-  mem_limit: 1073741824
-  volumes_from:
-  - logstash-indexer-config
-  command:
-  - logstash
-  - -f
-  - /etc/logstash
-  image: edispro/logstash:6.5.1
-  links:
-  - redis:redis
-  external_links:
-  - ${elasticsearch_link}:elasticsearch
-  - ${mysql_link}:mysql
-  stdin_open: true
-  labels:
-    io.rancher.sidekicks: logstash-indexer-config
-    io.rancher.container.hostname_override: container_name
 logstash-collector-config:
   restart: always
   image: rancher/logstash-config:v0.2.0
@@ -42,15 +6,10 @@ logstash-collector-config:
 logstash-collector:
   restart: always
   tty: true
-  mem_limit: 1073741824
-  links:
-  - redis:redis
+  mem_limit: ${mem_limit}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
-  ports:
-  - "5000/udp"
-  - "6000/tcp"
   volumes_from:
   - logstash-collector-config
   volumes:
@@ -64,3 +23,4 @@ logstash-collector:
   labels:
     io.rancher.sidekicks: logstash-collector-config
     io.rancher.container.hostname_override: container_name
+ 

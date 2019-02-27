@@ -1,6 +1,6 @@
 .catalog:
   name: "Logstash"
-  version: "6.5.1-club21"
+  version: "6.5.1-club21-small"
   description: "Logstash: Process Any Data, From Any Source"
   questions:
     - variable: "collector_inputs"
@@ -60,29 +60,18 @@
       default: ""
       required: true
       type: "service"
-logstash-indexer:
-  metadata:
-    logstash:
-      inputs: |
-        redis {
-          host => "redis.rancher.internal"
-          port => "6379"
-          data_type => "list"
-          key => "logstash"
-        }
-      filters: |
-        ${indexer_filters}
-      outputs: |
-        ${indexer_outputs}
+    - variable: "mem_limit"
+      type: "int"
+      required: true
+      label: "Memory limit in byte "
+      description: "Memory limit in Byte per  container"
+      default: 2147483648    
 logstash-collector:
   metadata:
     logstash:
       inputs: |
         ${collector_inputs}
+      filters: |
+        ${indexer_filters}
       outputs: |
-        redis {
-          host => "redis.rancher.internal"
-          port => "6379"
-          data_type => "list"
-          key => "logstash"
-        }
+        ${indexer_outputs}
