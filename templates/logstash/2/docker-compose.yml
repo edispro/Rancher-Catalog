@@ -18,7 +18,7 @@ logstash-collector:
   - logstash
   - -f
   - /etc/logstash
-  image: edispro/logstash:6.3
+  image: edispro/logstash:6.6
   stdin_open: true
   labels:
     io.rancher.sidekicks: logstash-collector-config
