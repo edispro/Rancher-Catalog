@@ -14,7 +14,7 @@ logstash-collector:
   - logstash-collector-config
   volumes:
   - ${file_path}:/mnt/logstash
-    command:
+  command:
   - logstash
   - -f
   - /etc/logstash
