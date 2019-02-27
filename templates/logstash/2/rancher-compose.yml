@@ -60,6 +60,12 @@
       default: ""
       required: true
       type: "service"
+    - variable: "mem_limit"
+      type: "int"
+      required: true
+      label: "Memory limit in byte "
+      description: "Memory limit in Byte per  container"
+      default: 2147483648    
 logstash-collector:
   metadata:
     logstash:

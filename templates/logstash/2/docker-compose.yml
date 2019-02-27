@@ -6,7 +6,7 @@ logstash-collector-config:
 logstash-collector:
   restart: always
   tty: true
-  mem_limit: 1073741824
+  mem_limit: ${mem_limit}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
