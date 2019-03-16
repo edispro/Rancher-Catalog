@@ -1,8 +1,7 @@
-name: Mysql Backup
+name: MysqlBackup
 description: |
 Backup a data-oriented container and a MariaDB/MySQL container and upload them to a FTP/SFTP server using lftp.
 category: Clustering
 maintainer: "Edispro"
-minimum_rancher_version: v1.6.0
 license: 
 projectURL: https://hub.docker.com/r/ambroisemaupate/ftp-backup
