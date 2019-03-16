@@ -1,0 +1,65 @@
+---
+.catalog:
+  name: "Mysql Backup"
+  version: "1"
+  description: |
+  Backup a data-oriented container and a MariaDB/MySQL container and upload them to a FTP/SFTP server using lftp.
+  questions:
+    - variable: DB_HOST
+      label: "Database host name:"
+      type: string
+      default: ""
+      required: true
+    - variable: DB_USER
+      label: "Database user name:"
+      type: string
+      required: true      
+    - variable: DB_PASS
+      label: "Database user password:"
+      type: string
+      default: ""
+      required: true
+    - variable: DB_NAME
+      label: "Database name:"
+      type: string
+      default: ""
+      required: true
+    - variable: FTP_HOST
+      label: "FTP server hostname:"
+      type: string
+      default: ""
+      required: true
+    - variable: FTP_PORT
+      label: "FTP server port:"
+      type: string
+      default: ""
+      required: true
+    - variable: FTP_PROTO
+      label: "Protocol to use:"
+      description: |
+      ftp , sftp
+      type: string
+      default: "ftp"
+      required: true            
+    - variable: FTP_USER
+      label: "FTP server username:"
+      type: string
+      default: ""
+      required: true
+    - variable: FTP_PASS
+      label: "FTP server user password:"
+      type: string
+      default: ""
+      required: true
+    - variable: REMOTE_PATH
+      label: "Your FTP backup destination folder:"
+      type: string
+      default: ""
+      required: true
+                                    
+
+version: '2'
+services:
+  osync:
+    scale: 1
+    start_on_create: true
