@@ -4,7 +4,18 @@ services:
     image: ambroisemaupate/ftp-backup:latest
     stdin_open: true
     tty: true
-    restart: always                                       
+    restart: always 
+    environment:
+      DB_USER: "${DB_USER}"
+      DB_HOST: "${DB_HOST}"
+      DB_PASS: "${DB_PASS}" 
+      DB_NAME: "${DB_NAME}" 
+      FTP_USER: "${FTP_USER}" 
+      FTP_PASS: "${FTP_PASS}" 
+      FTP_HOST: "${FTP_HOST}"
+      FTP_PORT: "${FTP_PORT}"
+      FTP_PROTO: "${FTP_PROTO}"
+      REMOTE_PATH: "${REMOTE_PATH}"                                        
     volumes:
     - /etc/localtime:/etc/localtime:ro
     labels:
