@@ -1,4 +1,4 @@
-name: MysqlBackup
+name: Mysql Backup
 description: |
 Backup a data-oriented container and a MariaDB/MySQL container and upload them to a FTP/SFTP server using lftp.
 category: Clustering
