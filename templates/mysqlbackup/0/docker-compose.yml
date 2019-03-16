@@ -1,6 +1,6 @@
 version: '2'
 services:
-  osync:
+  mysqlbackup:
     image: ambroisemaupate/ftp-backup:latest
     stdin_open: true
     tty: true
