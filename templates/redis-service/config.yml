@@ -1,0 +1,9 @@
+name: Redis Service
+description: |
+
+version: 1
+category: Clustering
+maintainer: "Edispro"
+minimum_rancher_version: v1.6.0
+license: 
+projectURL: https://github.com/edispro/Rancher-Catalog

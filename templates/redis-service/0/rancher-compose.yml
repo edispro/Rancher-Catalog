@@ -1,0 +1,37 @@
+---
+.catalog:
+  name: "Redis Cluster"
+  version: "v4.0.0"
+  description: |
+    Redis Sentinel Cluster
+  questions:
+    - variable: REDIS_PASSWORD
+      label: "Redis auth password"
+      type: password
+      required: true
+    - variable: REDIS_NODES
+      label: Number of redis nodes
+      description: Number of Redis server nodes to launch.
+      type: int
+      default: 1
+      required: true
+
+
+
+version: '2'
+services:
+  redis-server:
+    retain_ip: true
+    scale: ${REDIS_NODES}
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      recreate_on_quorum_strategy_config:
+        quorum: 2
+      port: 6379
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      strategy: recreateOnQuorum
+      reinitializing_timeout: 60000
