@@ -5,7 +5,7 @@ services:
 
     environment:
       REDIS_PASSWORD: '${REDIS_PASSWORD}'
-      REDIS_TIMEOUT: '1000'
+      REDIS_TIMEOUT: '3600'
     stdin_open: true
     restart: always
     volumes:

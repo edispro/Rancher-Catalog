@@ -1,7 +1,7 @@
 ---
 .catalog:
-  name: "Redis Cluster"
-  version: "v4.0.0"
+  name: "Redis Server"
+  version: "5.0.4"
   description: |
     Redis Sentinel Cluster
   questions:
