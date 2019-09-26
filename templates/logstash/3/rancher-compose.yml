@@ -1,0 +1,57 @@
+.catalog:
+  name: "Logstash"
+  version: "6.5.1-custom"
+  description: "Logstash: Process Any Data, From Any Source"
+  questions:
+    - variable: "file_path"
+      label: "Add File Sql Volume to /mnt/logstash"
+      default: "/mnt/logstash"
+      type: "string"
+      required: true
+    - variable: "config_path1"
+      label: "Add Config 1 Volume "
+      default: "/mnt/logstash_add/conf.d_1"
+      type: "string"
+      required: true
+    - variable: "config_path2"
+      label: "Add Config 2 Volume "
+      default: "/mnt/logstash_add/conf.d_2"
+      type: "string"
+      required: true    
+    - variable: "config_path3"
+      label: "Add Config 3 Volume "
+      default: "/mnt/logstash_add/conf.d_3"
+      type: "string"
+      required: true    
+    - variable: "config_path4"
+      label: "Add Config 4 Volume "
+      default: "/mnt/logstash_add/conf.d_4"
+      type: "string"
+      required: true 
+    - variable: "config_path5"
+      label: "Add Config 5 Volume "
+      default: "/mnt/logstash_add/conf.d_5"
+      type: "string"
+      required: true                                    
+    - variable: "elasticsearch_link"
+      description: |
+        stack/service link or external service link to elasticsearch
+        cluster.
+      label: "Elasticsearch stack/service"
+      default: ""
+      required: true
+      type: "service"
+    - variable: "mysql_link"
+      description: |
+        mysql host  mysql.rancher.internal
+      label: "mysql stack/service"
+      default: ""
+      required: true
+      type: "service"
+    - variable: "mem_limit"
+      type: "int"
+      required: true
+      label: "Memory limit in byte "
+      description: "Memory limit in Byte per  container"
+      default: 2147483648    
+
