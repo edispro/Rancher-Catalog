@@ -17,6 +17,7 @@ logstash-1:
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: logstash-1     
 logstash-2:
   restart: always
   tty: true
@@ -35,6 +36,7 @@ logstash-2:
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: logstash-1     
 logstash-3:
   restart: always
   tty: true
@@ -53,6 +55,7 @@ logstash-3:
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: logstash-1     
 logstash-4:
   restart: always
   tty: true
@@ -71,6 +74,7 @@ logstash-4:
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: logstash-1     
 logstash-5:
   restart: always
   tty: true
@@ -88,5 +92,6 @@ logstash-5:
   image: edispro/logstash:6.5.1
   stdin_open: true
   labels:
-    io.rancher.container.hostname_override: container_name                
+    io.rancher.container.hostname_override: container_name        
+    io.rancher.sidekicks: logstash-1        
  
