@@ -8,7 +8,7 @@ logstash-1:
   - ${mysql_link}:mysql
   volumes:
   - ${file_path}:/mnt/logstash
-  - ${config_path1}:/mnt/logstash  
+  - ${config_path1}:/etc/logstash  
   command:
   - logstash
   - -f
@@ -26,7 +26,7 @@ logstash-2:
   - ${mysql_link}:mysql
   volumes:
   - ${file_path}:/mnt/logstash
-  - ${config_path2}:/mnt/logstash  
+  - ${config_path2}:/etc/logstash  
   command:
   - logstash
   - -f
@@ -44,7 +44,7 @@ logstash-3:
   - ${mysql_link}:mysql
   volumes:
   - ${file_path}:/mnt/logstash
-  - ${config_path3}:/mnt/logstash  
+  - ${config_path3}:/etc/logstash  
   command:
   - logstash
   - -f
@@ -62,7 +62,7 @@ logstash-4:
   - ${mysql_link}:mysql
   volumes:
   - ${file_path}:/mnt/logstash
-  - ${config_path4}:/mnt/logstash  
+  - ${config_path4}:/etc/logstash  
   command:
   - logstash
   - -f
@@ -80,7 +80,7 @@ logstash-5:
   - ${mysql_link}:mysql
   volumes:
   - ${file_path}:/mnt/logstash
-  - ${config_path5}:/mnt/logstash  
+  - ${config_path5}:/etc/logstash  
   command:
   - logstash
   - -f
