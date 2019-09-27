@@ -33,10 +33,10 @@
       default: "/mnt/logstash_add/conf.d_5"
       type: "string"
       required: false
-    - variable: "cpuset5"
+    - variable: "cpuset1"
       description: |
         e.g.0,3;Default All
-      label: "Config1 CPU Pinning"
+      label: "Config 1 CPU Pinning"
       default: ""
       type: "string"
       required: false       
@@ -61,7 +61,7 @@
       default: ""
       type: "string"
       required: false
-    - variable: "cpuset4"
+    - variable: "cpuset5"
       description: |
         e.g.0,3;Default All
       label: "Config 5 CPU Pinning"
