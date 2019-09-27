@@ -32,7 +32,42 @@
       label: "Add Config 5 Volume "
       default: "/mnt/logstash_add/conf.d_5"
       type: "string"
-      required: true                                    
+      required: false
+    - variable: "cpuset5"
+      description: |
+        e.g.0,3;Default All
+      label: "Config1 CPU Pinning"
+      default: ""
+      type: "string"
+      required: false       
+    - variable: "cpuset2"
+      description: |
+        e.g.0,3;Default All
+      label: "Config 2 CPU Pinning"
+      default: ""
+      type: "string"
+      required: false
+    - variable: "cpuset3"
+      description: |
+        e.g.0,3;Default All
+      label: "Config 3 CPU Pinning"
+      default: ""
+      type: "string"
+      required: false
+    - variable: "cpuset4"
+      description: |
+        e.g.0,3;Default All
+      label: "Config 4 CPU Pinning"
+      default: ""
+      type: "string"
+      required: false
+    - variable: "cpuset4"
+      description: |
+        e.g.0,3;Default All
+      label: "Config 5 CPU Pinning"
+      default: ""
+      type: "string"
+      required: false                                            
     - variable: "elasticsearch_link"
       description: |
         stack/service link or external service link to elasticsearch
