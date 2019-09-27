@@ -18,6 +18,8 @@ logstash-1:
     {{- if ne .Values.cpuset1 ""}}
   cpuset: '${cpuset1}'
     {{- end}}
+  environment:
+    xpack.monitoring.enabled: false    
   labels:
     io.rancher.container.hostname_override: container_name  
 logstash-2:
@@ -38,7 +40,9 @@ logstash-2:
   stdin_open: true
     {{- if ne .Values.cpuset2 ""}}
   cpuset: '${cpuset2}'
-    {{- end}}  
+    {{- end}}
+  environment:
+    xpack.monitoring.enabled: false        
   labels:
     io.rancher.container.hostname_override: container_name   
 logstash-3:
@@ -59,7 +63,9 @@ logstash-3:
   stdin_open: true
     {{- if ne .Values.cpuset3 ""}}
   cpuset: '${cpuset3}'
-    {{- end}}   
+    {{- end}}
+  environment:
+    xpack.monitoring.enabled: false         
   labels:
     io.rancher.container.hostname_override: container_name
 logstash-4:
@@ -80,7 +86,9 @@ logstash-4:
   stdin_open: true
     {{- if ne .Values.cpuset4 ""}}
   cpuset: '${cpuset4}'
-    {{- end}}   
+    {{- end}}
+  environment:
+    xpack.monitoring.enabled: false         
   labels:
     io.rancher.container.hostname_override: container_name   
 logstash-5:
@@ -101,7 +109,9 @@ logstash-5:
   stdin_open: true
     {{- if ne .Values.cpuset5 ""}}
   cpuset: '${cpuset5}'
-    {{- end}}   
+    {{- end}}
+  environment:
+    xpack.monitoring.enabled: false         
   labels:
     io.rancher.container.hostname_override: container_name        
     io.rancher.sidekicks: logstash-1,logstash-2,logstash-3,logstash-4   
