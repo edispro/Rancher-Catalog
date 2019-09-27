@@ -1,7 +1,8 @@
 .catalog:
   name: "Logstash"
   version: "6.5.1-custom"
-  description: "Logstash: Process Any Data, From Any Source"
+  description: "Logstash: Process Any Data, From Any Source
+  output host : elasticsearch.rancher.internal"
   questions:
     - variable: "file_path"
       label: "Add File Sql Volume to /mnt/logstash"
