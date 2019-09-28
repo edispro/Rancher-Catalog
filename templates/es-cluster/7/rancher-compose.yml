@@ -16,7 +16,7 @@ catalog:
           label: "Include Cerebro:"
           description: |
             Include Cerebro administration - you will use the address http://elasticsearch:9200 to connect to this cluster.
-          default: true
+          default: false
           type: boolean
 
         - variable: "UPDATE_SYSCTL"
@@ -31,7 +31,7 @@ catalog:
           label: "Include Kibana:"
           description: |
             Set true to deploy a linked Kibana instance as well.
-          default: true
+          default: false
           type: boolean
 
         - variable: "master_heap_size"
@@ -120,6 +120,12 @@ catalog:
           required: false
           label: "thread_pool.search.queue_size (data nodes)"
           description: "Initial queue_size of 1000. (data nodes)"
+        - variable: "thread_pool_write_queue_size"
+          default: "20000"
+          type: "int"
+          required: false
+          label: "thread_pool.write.queue_size (data nodes)"
+          description: "Initial queue_size of 1000. (data nodes)"          
 
 services:
 

@@ -88,7 +88,8 @@ logstash-4:
   cpuset: '${cpuset4}'
     {{- end}}
   environment:
-    xpack.monitoring.enabled: false         
+    xpack.monitoring.enabled: false
+    pipeline.batch.size: 2000          
   labels:
     io.rancher.container.hostname_override: container_name   
 logstash-5:
@@ -111,7 +112,8 @@ logstash-5:
   cpuset: '${cpuset5}'
     {{- end}}
   environment:
-    xpack.monitoring.enabled: false         
+    xpack.monitoring.enabled: false
+    pipeline.batch.size: 2000         
   labels:
     io.rancher.container.hostname_override: container_name        
     io.rancher.sidekicks: logstash-1,logstash-2,logstash-3,logstash-4   

@@ -48,7 +48,7 @@ services:
             - "node.master=false"
             - "node.data=true"
             - "thread_pool.search.size=${thread_pool_search_size}"
-            - "thread_pool.search.queue_size=${thread_pool_search_queue_size}"
+            - "thread_pool.write.queue_size=${thread_pool_write_queue_size}"
         ulimits:
             memlock:
                 soft: -1
