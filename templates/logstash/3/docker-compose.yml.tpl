@@ -2,7 +2,9 @@
 logstash-1:
   restart: always
   tty: true
+  {{- if ne .Values.mem_limit ""}}
   mem_limit: ${mem_limit}
+  {{- end}}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
@@ -25,7 +27,9 @@ logstash-1:
 logstash-2:
   restart: always
   tty: true
+  {{- if ne .Values.mem_limit ""}}
   mem_limit: ${mem_limit}
+  {{- end}}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
@@ -48,7 +52,9 @@ logstash-2:
 logstash-3:
   restart: always
   tty: true
+  {{- if ne .Values.mem_limit ""}}
   mem_limit: ${mem_limit}
+  {{- end}}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
@@ -71,7 +77,9 @@ logstash-3:
 logstash-4:
   restart: always
   tty: true
+  {{- if ne .Values.mem_limit ""}}
   mem_limit: ${mem_limit}
+  {{- end}}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
@@ -95,7 +103,9 @@ logstash-4:
 logstash-5:
   restart: always
   tty: true
+  {{- if ne .Values.mem_limit ""}}
   mem_limit: ${mem_limit}
+  {{- end}}
   external_links:
   - ${elasticsearch_link}:elasticsearch
   - ${mysql_link}:mysql
