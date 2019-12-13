@@ -34,6 +34,11 @@
       default: "/mnt/logstash_add/conf.d_5"
       type: "string"
       required: false
+    - variable: "config_path5"
+      label: "Add Config 6 Volume "
+      default: "/mnt/logstash_add/conf.d_6"
+      type: "string"
+      required: false      
     - variable: "cpuset1"
       description: |
         e.g.0,3;Default All
@@ -68,7 +73,14 @@
       label: "Config 5 CPU Pinning"
       default: ""
       type: "string"
-      required: false                                            
+      required: false 
+    - variable: "cpuset6"
+      description: |
+        e.g.0,3;Default All
+      label: "Config 5 CPU Pinning"
+      default: ""
+      type: "string"
+      required: false                                                      
     - variable: "elasticsearch_link"
       description: |
         stack/service link or external service link to elasticsearch (es-master for port 9200,es-loadbalancer for port 9201)

@@ -23,7 +23,8 @@ logstash-1:
   environment:
     xpack.monitoring.enabled: false    
   labels:
-    io.rancher.container.hostname_override: container_name  
+    io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: logstash-2,logstash-3,logstash-4,logstash-5,logstash-6         
 logstash-2:
   restart: always
   tty: true
@@ -126,5 +127,31 @@ logstash-5:
     pipeline.batch.size: 2000         
   labels:
     io.rancher.container.hostname_override: container_name        
-    io.rancher.sidekicks: logstash-1,logstash-2,logstash-3,logstash-4   
+logstash-6:
+  restart: always
+  tty: true
+  {{- if ne .Values.mem_limit ""}}
+  mem_limit: ${mem_limit}
+  {{- end}}
+  external_links:
+  - ${elasticsearch_link}:elasticsearch
+  - ${mysql_link}:mysql
+  volumes:
+  - ${file_path}:/mnt/logstash
+  - ${config_path5}:/etc/logstash  
+  command:
+  - logstash
+  - -f
+  - /etc/logstash
+  image: edispro/logstash:6.5.1
+  stdin_open: true
+    {{- if ne .Values.cpuset5 ""}}
+  cpuset: '${cpuset5}'
+    {{- end}}
+  environment:
+    xpack.monitoring.enabled: false
+    pipeline.batch.size: 2000         
+  labels:
+    io.rancher.container.hostname_override: container_name        
+ 
  
